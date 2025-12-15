@@ -1,0 +1,22 @@
+/* Header.css */
+
+/* Header background */
+header {
+  background-color: #6c757d; /* equivalent to Bootstrap bg-secondary */
+}
+
+/* Logo */
+.navbar-brand img {
+  width: 80px;
+  height: 80px;
+}
+
+/* Navbar links */
+.nav-link {
+  color: #c0d2e2 !important; /* text-secondary */
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}

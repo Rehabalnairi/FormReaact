@@ -1,0 +1,70 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make body full height */
+body, html, #root {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Ensure header and footer stretch full width */
+header, footer {
+  width: 100%;
+}
+
+/* Container for main content (form) */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f4f8;
+}
+
+/* Optional: make the App a column flex layout */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .register-form {
+    padding: 25px 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .register-form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  header, footer {
+    padding: 15px;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .register-form {
+    padding: 15px;
+  }
+
+  .register-form legend {
+    font-size: 1.2rem;
+  }
+}

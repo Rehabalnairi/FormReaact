@@ -1,0 +1,43 @@
+/* Footer.css */
+
+.freshcart-footer {
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 40px 20px;
+}
+
+.freshcart-footer h3,
+.freshcart-footer h4 {
+  margin-bottom: 15px;
+}
+
+.freshcart-footer p {
+  margin-bottom: 20px;
+}
+
+.freshcart-footer .email-form input {
+  flex: 1;
+}
+
+.freshcart-footer .payment-icons i,
+.freshcart-footer .app-icon i {
+  color: #212529;
+  transition: color 0.3s;
+}
+
+.freshcart-footer .payment-icons i:hover,
+.freshcart-footer .app-icon i:hover {
+  color: #0d6efd;
+}
+
+@media (max-width: 768px) {
+  .partners-delivery-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delivery-links a {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+}
