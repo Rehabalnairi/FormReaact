@@ -30,12 +30,11 @@ main {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
 /* Media Queries for Responsiveness */
-
-/* Tablet */
+ /* Tablet  */
 @media (max-width: 1024px) {
   .register-form {
     padding: 25px 30px;
