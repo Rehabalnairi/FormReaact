@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./reg.css";
 
 const Reg = () => {
@@ -11,8 +12,9 @@ const Reg = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState("");
 
-  // Regex 
+  // Regex patterns
   const nameRegex = /^[A-Za-z\s]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
@@ -30,6 +32,8 @@ const Reg = () => {
       ...prev,
       [id]: "",
     }));
+
+    setSuccess("");
   };
 
   const handleSubmit = (e) => {
@@ -37,34 +41,36 @@ const Reg = () => {
 
     let newErrors = {};
 
+    // Name validation
     if (!formData.name) {
       newErrors.name = "Name is required";
     } else if (!nameRegex.test(formData.name)) {
       newErrors.name = "Name must contain letters only";
     }
 
-
+    // Email validation
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
 
+    // Password validation
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (!passwordRegex.test(formData.password)) {
       newErrors.password =
-        "Password must be 8+ chars, include uppercase, lowercase & number";
+        "Password must be at least 8 characters and include uppercase, lowercase, and a number";
     }
 
-
+    // Re-password validation
     if (!formData.rePassword) {
       newErrors.rePassword = "Please confirm your password";
     } else if (formData.password !== formData.rePassword) {
       newErrors.rePassword = "Passwords do not match";
     }
 
-
+    // Phone validation
     if (!formData.phone) {
       newErrors.phone = "Phone number is required";
     } else if (!phoneRegex.test(formData.phone)) {
@@ -73,9 +79,17 @@ const Reg = () => {
 
     setErrors(newErrors);
 
+    // If no errors
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form Data:", formData);
-      alert("Registration successful ");
+      console.log("✅ Valid Form Data:", formData);
+      setSuccess("Registration successful!");
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+        rePassword: "",
+        phone: "",
+      });
     }
   };
 
@@ -85,6 +99,13 @@ const Reg = () => {
         <fieldset>
           <legend>Register Now</legend>
 
+          {success && (
+            <div className="alert alert-success text-center">
+              {success}
+            </div>
+          )}
+
+          {/* Name */}
           <div className="form-group">
             <label>Name</label>
             <input
@@ -93,9 +114,12 @@ const Reg = () => {
               value={formData.name}
               onChange={handleChange}
             />
-            {errors.name && <p className="error">{errors.name}</p>}
+            {errors.name && (
+              <div className="alert alert-danger">{errors.name}</div>
+            )}
           </div>
 
+          {/* Email */}
           <div className="form-group">
             <label>Email</label>
             <input
@@ -104,9 +128,12 @@ const Reg = () => {
               value={formData.email}
               onChange={handleChange}
             />
-            {errors.email && <p className="error">{errors.email}</p>}
+            {errors.email && (
+              <div className="alert alert-danger">{errors.email}</div>
+            )}
           </div>
 
+          {/* Password */}
           <div className="form-group">
             <label>Password</label>
             <input
@@ -115,9 +142,12 @@ const Reg = () => {
               value={formData.password}
               onChange={handleChange}
             />
-            {errors.password && <p className="error">{errors.password}</p>}
+            {errors.password && (
+              <div className="alert alert-danger">{errors.password}</div>
+            )}
           </div>
 
+          {/* Re-Password */}
           <div className="form-group">
             <label>Re-Password</label>
             <input
@@ -127,10 +157,11 @@ const Reg = () => {
               onChange={handleChange}
             />
             {errors.rePassword && (
-              <p className="error">{errors.rePassword}</p>
+              <div className="alert alert-danger">{errors.rePassword}</div>
             )}
           </div>
 
+          {/* Phone */}
           <div className="form-group">
             <label>Phone</label>
             <input
@@ -139,7 +170,9 @@ const Reg = () => {
               value={formData.phone}
               onChange={handleChange}
             />
-            {errors.phone && <p className="error">{errors.phone}</p>}
+            {errors.phone && (
+              <div className="alert alert-danger">{errors.phone}</div>
+            )}
           </div>
 
           <div className="form-actions">
