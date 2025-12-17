@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Header.css';
 import { Link } from 'react-router-dom'; 
+import logo from '../../../public/img/freshcart-logo.svg';
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
         <div className="container">
  
           <Link className="navbar-brand" to="/">
-            <img src="/freshcart-logo.svg" alt="Logo" />
+            <img src={logo} alt="Logo" />
           </Link>
 
           <button 
