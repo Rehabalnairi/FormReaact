@@ -13,7 +13,7 @@ const Home = () => {
       try {
         let res = await fetch("https://ecommerce.routemisr.com/api/v1/products");
         let data = await res.json();
-        setProducts(data.data);  // API returns products inside 'data.data'
+        setProducts(data.data);  
         setLoading(false);
       } catch (error) {
         console.log("Error fetching products", error);
@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-      {/* Carousel */}
+
       <div className="container mt-4">
         <div id="carouselExample" className="carousel slide">
           <div className="carousel-inner">
@@ -70,7 +70,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Loader */}
+
       {loading && (
         <div className="text-center my-5">
           <div
@@ -83,7 +83,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* Products Section */}
+
       <section className="py-4 bg-white container">
         <h3 className="mb-4">Products</h3>
 
