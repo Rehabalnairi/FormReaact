@@ -4,6 +4,8 @@ import Footer from "./components/Footer/Footer.jsx";
 import Home from "./components/Home/home.jsx";
 import Reg from "./components/reg/reg.jsx";
 import Errors from "./components/errors/errors.jsx";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 function App() {
   return (
