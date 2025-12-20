@@ -5,6 +5,7 @@ import Home from "./components/Home/home.jsx";
 import Reg from "./components/reg/reg.jsx";
 import Errors from "./components/errors/errors.jsx";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import LoginForm from "./components/Login/Login.jsx";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Reg />} />
+        <Route path="/Login" element={<LoginForm />} />
         <Route path="*" element={<Errors />} />
       </Routes>
       <Footer />
