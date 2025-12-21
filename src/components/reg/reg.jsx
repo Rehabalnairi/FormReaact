@@ -48,14 +48,14 @@ const Reg = () => {
       newErrors.name = "Name must contain letters only";
     }
 
-    // Email validation
+
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
 
-    // Password validation
+    
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (!passwordRegex.test(formData.password)) {
@@ -63,14 +63,14 @@ const Reg = () => {
         "Password must be at least 8 characters and include uppercase, lowercase, and a number";
     }
 
-    // Re-password validation
+
     if (!formData.rePassword) {
       newErrors.rePassword = "Please confirm your password";
     } else if (formData.password !== formData.rePassword) {
       newErrors.rePassword = "Passwords do not match";
     }
 
-    // Phone validation
+
     if (!formData.phone) {
       newErrors.phone = "Phone number is required";
     } else if (!phoneRegex.test(formData.phone)) {
